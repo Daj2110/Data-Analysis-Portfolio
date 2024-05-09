@@ -10,4 +10,14 @@ This repository serves as a dynamic portfolio, illustrating my grasp of essentia
 2. Database Management: SQL
 
 # My Projects
- 
+ Python 
+  1. Weather Data Analysis for Outdoor Activity Planning: https://github.com/Daj2110/Data-Analysis-Portfolio/blob/main/Python%20Projects/Weather_Data_Analysis_Project.ipynb
+     
+  2. Credit Card Fraud Detection: https://github.com/Daj2110/Data-Analysis-Portfolio/blob/main/Python%20Projects/Credit%20Card%20Fraud%20Detection.ipynb
+     
+  3. Stock Market Data Tracker and Analyzer: https://github.com/Daj2110/Data-Analysis-Portfolio/blob/main/Python%20Projects/Stock_Market_Data_Tracker_and_Analyzer.ipynb
+     
+  4. Exploration of Iris Dataset: https://github.com/Daj2110/Data-Analysis-Portfolio/blob/main/Python%20Projects/Exploration_of_IRIS_Dataset.ipynb
+
+SQL 
+ 1. Pet Adoption Agency: https://github.com/Daj2110/Data-Analysis-Portfolio/blob/main/SQL%20Projects/%20Pet%20Adoption%20Agency.pdf
