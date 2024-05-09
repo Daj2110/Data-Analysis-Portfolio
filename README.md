@@ -1,4 +1,4 @@
-# Data-Analysis-Portfolio
+# Data Analysis Portfolio
 ## About Me
 Hello there! I'm Dajia Forbes, a passionate data enthusiast currently pursuing my master's degree in Data Science. Armed with a strong foundation in Electrical and Computer Engineering Technology from my bachelor's studies, I am on a journey to explore the vast and intriguing world of data.
 
