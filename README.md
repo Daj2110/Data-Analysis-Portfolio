@@ -8,6 +8,7 @@ This repository serves as a dynamic portfolio, illustrating my grasp of essentia
 ## Skills Showcased
 1. Programming Lanuages: Python
 2. Database Management: SQL
+3. Visulaizations: Tableau 
 
 # My Projects
  Python 
@@ -21,3 +22,6 @@ This repository serves as a dynamic portfolio, illustrating my grasp of essentia
 
 SQL 
  1. Pet Adoption Agency: https://github.com/Daj2110/Data-Analysis-Portfolio/blob/main/SQL%20Projects/%20Pet%20Adoption%20Agency.pdf
+
+Tableau 
+1. AirBnB Listings: https://public.tableau.com/views/AirBnBProject_17164081010150/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link
