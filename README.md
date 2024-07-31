@@ -25,3 +25,5 @@ SQL
 
 Tableau 
 1. AirBnB Listings: https://public.tableau.com/views/AirBnBProject_17164081010150/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link
+   
+3. Summary of 2020 Formula Season:https://public.tableau.com/app/profile/dajia.forbes/viz/Summaryofthe2020Formula1Season/Summaryofthe2020F1Season?publish=yes
