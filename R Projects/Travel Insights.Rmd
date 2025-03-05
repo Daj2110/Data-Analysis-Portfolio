@@ -1,0 +1,157 @@
+---
+title: "Travel Insights"
+author: "Dajia Forbes"
+date: "2025-03-02"
+output: html_document
+---
+```{r}
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(stringr)
+
+```
+
+```{r}
+Travel_Data = read.csv("/Users/Dajia/Desktop/Projects/R/1-Tavel Data/Travel Dataset.csv")
+Travel_Data
+```
+
+
+```{r}
+Travel_Data$Country <- sub(".*,\\s*", "", Travel_Data$Destination)
+
+
+country_counts <- Travel_Data %>%
+  group_by(Country) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+country_counts
+
+ggplot(country_counts, aes(x = reorder(Country, -Count), y = Count)) +
+  geom_bar(stat = "identity", fill = "darkgreen") +
+  labs(title = "Countries",
+       x = "Country",
+       y = "Number of Visits") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  plot.title = element_text(hjust = 0.5,vjust=1) 
+
+```
+
+
+
+
+```{r}
+ggplot(Travel_Data, aes(x = Destination, y = Traveler.Age)) +
+  geom_jitter(width = 0.2, height = 0) +
+  labs(title = "Age vs Destination", x = "Destination", y = "Age") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+```
+
+```{r}
+
+
+accommodation_summary <- Travel_Data %>%
+  group_by(Accommodation.Type) %>%
+  summarise(Average_Cost = mean(`Accommodation.Cost..`, na.rm = TRUE))
+
+ggplot(accommodation_summary, aes(x = reorder(Accommodation.Type, Average_Cost), y = Average_Cost, fill = Accommodation.Type)) +
+  geom_bar(stat = "identity", color = "black", alpha = 0.7) +
+  labs(title = "Average Accommodation Cost by Type",
+       x = "Accommodation Type",
+       y = "Average Cost ($)",
+       fill = "Accommodation Type") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5)) +  
+  coord_flip()  
+
+
+
+
+```
+
+```{r}
+
+Travel_Data <- Travel_Data %>%
+  mutate(Traveler.Nationality = str_trim(str_to_title(Traveler.Nationality)))
+
+
+nationality_corrections <- c(
+  "Usa" = "American",
+  "United States" = "American",
+  "America" = "Merican",
+  "United Kingdom" = "British",
+  "Uk" = "United Kingdom",
+  "South Korean" = "South Korean",
+  "South South Korean" = "South Korean",
+  "Taiwan" = "Taiwanesese",
+  "Uae" = "United Arab Emirates",
+  "United Arab Emirates" = "Emirati",
+  "Brazil" = "Brazilian",
+  "China" = "Chinese",
+  "Germany" = "German",
+  "Italy" = "Italian",
+  "Japan" = "Japanese",
+  "South Korea" = "South Korean",
+  "South Koreann" = "South Korean",
+  "South South Koreann" = "South Korean",
+  "Spain" = "Spanish",
+  "Taiwaneseese" = "Taiwansese",
+  "Taiwanese" = "Taiwansese",
+  "Hong Kong" = "Hong Kongese"
+ 
+ 
+  
+)
+
+Travel_Data <- Travel_Data %>%
+  mutate(Traveler.Nationality = recode(Traveler.Nationality, !!!nationality_corrections))
+
+
+nationality_counts <- Travel_Data %>%
+  group_by(Traveler.Nationality) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+
+nationality_counts$Legend_Label <- paste(nationality_counts$Traveler.Nationality, "-", nationality_counts$Count)
+
+
+pie_chart <- ggplot(nationality_counts, aes(x = "", y = Count, fill = Legend_Label)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +  
+  labs(title = "Nationality Distribution of Travelers") +
+  theme_void() +
+  theme(plot.title = element_text(hjust = 0.5),
+        legend.title = element_blank()) +  
+  guides(fill = guide_legend(title = "Traveler Nationality")) +
+  scale_fill_manual(values = rainbow(nrow(nationality_counts)))  
+
+
+print(pie_chart)
+```
+```{r}
+
+plot <- ggplot(travel_summary, aes(x = Destination, y = Traveler.Nationality, fill = Count)) +
+  geom_tile() + 
+  scale_fill_gradient(low = "skyblue", high = "blue") +
+  labs(title = "Traveler Counts by Nationality, Destination, and Mode of Transport",
+       x = "Destination",
+       y = "Traveler Nationality",
+       fill = "Number of Travelers") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 50, hjust = 1))  
+
+# Print the plot
+print(plot)
+
+
+
+
+```
+
+
+
+
